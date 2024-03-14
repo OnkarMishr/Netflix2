@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        ENVIRONMENT = '$ENVIRONMENT' // Set the environment variable here or you can set it dynamically
+        ENVIRONMENT = 'UAT' // Set the environment variable here or you can set it dynamically
     }
     stages {
         stage('Deploy') {
