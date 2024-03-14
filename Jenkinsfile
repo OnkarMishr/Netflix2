@@ -5,6 +5,16 @@ pipeline {
         ENVIRONMENT = 'UAT' // Set the environment variable here or you can set it dynamically
     }
     stages {
+        stage('Checkout') {
+	        steps {
+			checkout scm			       
+		      }}
+        
+		stage('Build') {
+	           steps {
+			  sh '/home//home/onkar/Documents/Devops_Softawre/apache-maven-3.9.6/bin/mvn install'
+	                 }}
+        
         stage('Deploy') {
             steps {
                 script {
