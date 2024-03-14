@@ -1,7 +1,9 @@
 pipeline {
     agent any
 
-    
+    environment {
+        ENVIRONMENT = 'QA' // Set the environment variable here or you can set it dynamically
+    }
     stages {
         stage('Deploy') {
             steps {
