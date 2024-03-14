@@ -1,18 +1,24 @@
 pipeline {
     agent any
-
+    
+    environment {
+        MVN_HOME = tool 'Maven'
+        PATH = "$MVN_HOME/bin:$PATH"
+    }
     
     stages {
         stage('Checkout') {
-	        steps {
-			checkout scm			       
-		      }}
+            steps {
+                // Connect to Git repository using SCM
+                checkout scm
+            }
+        }
         
-		stage('Build') {
-	           steps {
-			  sh './home/onkar/Documents/Devops_Softawre/apache-maven-3.9.6/bin/mvn install'
-	                 }}
-        
-		
+        stage('Build') {
+            steps {
+                // Execute Maven install command
+                sh 'mvn install'
+            }
+        }
     }
 }
